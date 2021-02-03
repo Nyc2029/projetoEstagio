@@ -1,55 +1,104 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    <title>Formulario</title>
+    <link rel="sortcut icon" href="img/icon.png" type="image/x-icon" />
     <style>
-        
-        body {
+        body{
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 76, 224, 0.2)), to(rgb(2, 5, 51))) fixed;
             width: 100vw;
             height: 100vh;
-            background: #3b0441;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center
-        }
-        .box {
-            width: 300px;
-            background: rgba(219, 2, 2, 0);
-        }
-        #texto{
-            color: rgb(119, 119, 255);
-            text-align: center;
-            
-        }
-        body {
+            align-items: center;
             margin: 0px;
         }
-        @media screen and (max-width: 1200px){
-            #texto{
-                color:red;
-                transition: 1s;
-            }
-            .box{
-                transition: 1s;
-                border: solid red;
-                border-radius: 10px;
-            }
+        #geral{
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 750px;
+            height: 65%;
+            background: #fff;
+            border-radius: 10px;
+        }
+        #nome{
+            font-size: 60px;
+        }
+        #logo{
+            padding-top: 20px 0;
+            flex-wrap: nowrap;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            padding-top: 10px;
+        }
+        #formulario{
+            margin: 10px;
+            padding: 20px;
         }
     </style>
   </head>
   <body>
-    <div class="box">
-        <h1 id="texto">Minecraft é muito legal</h1>
+    
+    <div id="geral">
+        <div id="logo"><h1 id="nome">Create your account</h1></div>
+        <div id="formulario">
+            <form>
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input class="form-control" id="username">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+                <div id="passwordHelpBlock" class="form-text">
+                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Confirm your password</label>
+                    <input type="password" class="form-control" id="confPassword">
+                </div>
+                <br>
+                <center>
+                    <button type="submit" onclick="vai()" class="btn btn-primary">Create your account</button>
+                </center>    
+        </form>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    
-  </body>
+    <script>
+        
+        function vai(){
+            var nome = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confPassword = document.getElementById('confPassword').value;
+            if(nome==""||email==""||password==""||confPassword==""){
+                alert("Preencha todos os campos");
+            }else{
+                if(password!=confPassword){
+                    alert('Senhas não conferem');
+                }else{
+                    tudo={};
+                    tudo.nome=nome;
+                    tudo.email=email;
+                    tudo.password=password;
+                    console.log(tudo);
+                }
+            }
+        }
+    </script>
+
+</body>
 </html>
